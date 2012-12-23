@@ -10,12 +10,12 @@
 
 * 準備
 
-        gem install holiday-japan
+        gem install holiday_japan
 
  * または、holiday-japan.rb ファイルを ruby のライブラリパスに置く
- * 自分のスクリプトの初めに次のように書いて、 holiday-japan.rb をロードする
+ * 自分のスクリプトの初めに次のように書いて、 holiday_japan.rb をロードする
 
-            require 'holiday-japan'
+            require 'holiday_japan'
 
 * Dateクラスのオブジェクトによる祝日判定
 
@@ -41,7 +41,7 @@
 
 ## コマンドラインから祝日一覧を表示
 
-	$ ruby holiday-japan.rb 2013
+	$ ruby holiday_japan.rb 2013
 	listing year 2013...
 	2013-01-01 Tue 元日
 	2013-01-14 Mon 成人の日
@@ -76,7 +76,7 @@
     NO WARRANTY.
 
 ## Version:
-    2012-12-23  ver 1.0  Holiday から HolidayJapan に変更
+    2012-12-23  ver 1.0  モジュール名を Holiday から HolidayJapan に変更
     2007-08-02  ver 0.9  リファクタリング
     2007-03-08  ver 0.8  祝日データクラスを統一、データを配列で記述
     2006-02-06  ver 0.7  平成19年(西暦2007年)の暦要項 反映(祝日法改正)
