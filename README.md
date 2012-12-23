@@ -12,7 +12,7 @@
 
         gem install holiday_japan
 
- * または、holiday-japan.rb ファイルを ruby のライブラリパスに置く
+ * または、holiday_japan.rb ファイルを ruby のライブラリパスに置く
  * 自分のスクリプトの初めに次のように書いて、 holiday_japan.rb をロードする
 
             require 'holiday_japan'
