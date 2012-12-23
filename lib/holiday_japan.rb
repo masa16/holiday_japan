@@ -130,7 +130,7 @@ end
 
 
 # compatible with Funaba-san's holiday.rb
-class Datea
+class Date
   def national_holiday?
     HolidayJapan.name(self) ? true : false
   end
