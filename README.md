@@ -9,7 +9,9 @@
 ## Rubyスクリプトでの使い方
 
 * 準備
- * gem install holiday-japan
+
+        gem install holiday-japan
+
  * または、holiday-japan.rb ファイルを ruby のライブラリパスに置く
  * 自分のスクリプトの初めに次のように書いて、 holiday-japan.rb をロードする
 
