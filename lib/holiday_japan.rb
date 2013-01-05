@@ -3,6 +3,8 @@ require "date"
 
 module HolidayJapan
 
+  VERSION = "1.0.1"
+
   if !const_defined?("DATA")
     Week1 = 1..7
     Week2 = 8..14
@@ -140,6 +142,4 @@ end
 if __FILE__ == $0
   # print holiday list of the year
   HolidayJapan.print_year(ARGV[0])
-else
-  require "holiday_japan/version"
 end
