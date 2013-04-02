@@ -112,7 +112,7 @@ module HolidayJapan
   end
 
   def check(date)
-    HolidayJapan.name(date) ? true : false
+    !HolidayJapan.name(date).nil?
   end
 
   def list_year(year)
