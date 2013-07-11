@@ -3,7 +3,7 @@ require "date"
 
 module HolidayJapan
 
-  VERSION = "1.0.1"
+  VERSION = "1.0.2"
 
   if !const_defined?("DATA")
     Week1 = 1..7
