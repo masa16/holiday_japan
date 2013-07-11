@@ -12,7 +12,7 @@
 
  * RubyGems によるインストール
 
-        gem install holiday_japan
+            gem install holiday_japan
 
  * または、[holiday_japan.rb](https://github.com/masa16/holiday_japan/blob/master/lib/holiday_japan.rb) 
    のファイルを ruby のライブラリパスに置く
