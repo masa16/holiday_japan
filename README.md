@@ -10,9 +10,12 @@
 
 * 準備
 
+ * RubyGems によるインストール
+
         gem install holiday_japan
 
- * または、holiday_japan.rb ファイルを ruby のライブラリパスに置く
+ * または、[holiday_japan.rb](https://github.com/masa16/holiday_japan/blob/master/lib/holiday_japan.rb) 
+   のファイルを ruby のライブラリパスに置く
  * 自分のスクリプトの初めに次のように書いて、 holiday_japan.rb をロードする
 
             require 'holiday_japan'
@@ -70,9 +73,9 @@
     Masahiro TANAKA
 
 ## Copyright:
-    (C) Copyright 2003-2007 by Masahiro TANAKA
-    This program is free software.
-    see LICENSE.txt.
+    (C) Copyright 2003-2013 by Masahiro TANAKA
+    This program is free software under MIT license.
+    See LICENSE.txt.
     NO WARRANTY.
 
 ## Version:
