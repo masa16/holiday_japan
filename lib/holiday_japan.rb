@@ -1,60 +1,55 @@
 # -*- coding: utf-8 -*-
-# (C) Copyright 2003-2013 by Masahiro TANAKA
-# This program is free software under MIT license.
-# NO WARRANTY.
 require "date"
 
 module HolidayJapan
 
-  VERSION = "1.0.2"
+  VERSION = "1.0.3"
 
-  if !const_defined?("DATA")
-    Week1 = 1..7
-    Week2 = 8..14
-    Week3 = 15..21
-    Week4 = 22..28
-    Sun,Mon,Tue,Wed,Thu,Fru,Sat = (0..6).to_a
-    Inf = 1.0/0.0
+  WEEK1 = 1..7
+  WEEK2 = 8..14
+  WEEK3 = 15..21
+  WEEK4 = 22..28
+  SUN,MON,TUE,WED,THU,FRU,SAT = (0..6).to_a
+  INF = 1.0/0.0
 
-    # 祝日データ: 1948年7月20日以降で有効
-    DATA = [
-      ["元日",        1949..Inf ,  1,   1        ],
-      ["成人の日",    1949..1999,  1,  15        ],
-      ["成人の日",    2000..Inf ,  1, Week2, Mon ],
-      ["建国記念の日",1967..Inf ,  2,  11        ],
-      ["天皇誕生日",  1949..1988,  4,  29        ],
-      ["みどりの日",  1989..2006,  4,  29        ],
-      ["昭和の日",    2007..Inf ,  4,  29        ],
-      ["憲法記念日",  1949..Inf ,  5,   3        ],
-      ["みどりの日",  2007..Inf ,  5,   4        ],
-      ["こどもの日",  1949..Inf ,  5,   5        ],
-      ["海の日",      1996..2002,  7,  20        ],
-      ["海の日",      2003..Inf ,  7, Week3, Mon ],
-      ["敬老の日",    1966..2002,  9,  15        ],
-      ["敬老の日",    2003..Inf ,  9, Week3, Mon ],
-      ["体育の日",    1966..1999, 10,  10        ],
-      ["体育の日",    2000..Inf , 10, Week2, Mon ],
-      ["文化の日",    1948..Inf , 11,   3        ],
-      ["勤労感謝の日",1948..Inf , 11,  23        ],
-      ["天皇誕生日",  1989..Inf , 12,  23        ],
-      ["春分の日",    1949..1979,  3,
-	proc{|y|Integer(20.8357+0.242194*(y-1980))-Integer((y-1983)/4.0)} ],
-      ["春分の日",    1980..2099,  3,
-	proc{|y|Integer(20.8431+0.242194*(y-1980))-Integer((y-1980)/4.0)} ],
-      ["秋分の日" ,   1948..1979,  9,
-	proc{|y|Integer(23.2588+0.242194*(y-1980))-Integer((y-1983)/4.0)} ],
-      ["秋分の日" ,   1980..2099,  9,
-	proc{|y|Integer(23.2488+0.242194*(y-1980))-Integer((y-1980)/4.0)} ],
-      ["皇太子明仁親王の結婚の儀", 1959..1959,  4, 10 ],
-      ["昭和天皇の大喪の礼",       1989..1989,  2, 24 ],
-      ["即位礼正殿の儀",           1990..1990, 11, 12 ],
-      ["皇太子徳仁親王の結婚の儀", 1993..1993,  6,  9 ]
-    ]
-    DATA.each{|x| x[0].freeze; x.freeze }
-    DATA.freeze
-    TABLE = {}
-    FURIKAE_START = Date.new(1973,4,12).freeze
-  end
+  # 祝日データ: 1948年7月20日以降で有効
+  DATA = [
+    ["元日",        1949..INF ,  1,   1        ],
+    ["成人の日",    1949..1999,  1,  15        ],
+    ["成人の日",    2000..INF ,  1, WEEK2, MON ],
+    ["建国記念の日",1967..INF ,  2,  11        ],
+    ["天皇誕生日",  1949..1988,  4,  29        ],
+    ["みどりの日",  1989..2006,  4,  29        ],
+    ["昭和の日",    2007..INF ,  4,  29        ],
+    ["憲法記念日",  1949..INF ,  5,   3        ],
+    ["みどりの日",  2007..INF ,  5,   4        ],
+    ["こどもの日",  1949..INF ,  5,   5        ],
+    ["海の日",      1996..2002,  7,  20        ],
+    ["海の日",      2003..INF ,  7, WEEK3, MON ],
+    ["敬老の日",    1966..2002,  9,  15        ],
+    ["敬老の日",    2003..INF ,  9, WEEK3, MON ],
+    ["体育の日",    1966..1999, 10,  10        ],
+    ["体育の日",    2000..INF , 10, WEEK2, MON ],
+    ["文化の日",    1948..INF , 11,   3        ],
+    ["勤労感謝の日",1948..INF , 11,  23        ],
+    ["天皇誕生日",  1989..INF , 12,  23        ],
+    ["春分の日",    1949..1979,  3,
+      proc{|y|Integer(20.8357+0.242194*(y-1980))-Integer((y-1983)/4.0)} ],
+    ["春分の日",    1980..2099,  3,
+      proc{|y|Integer(20.8431+0.242194*(y-1980))-Integer((y-1980)/4.0)} ],
+    ["秋分の日" ,   1948..1979,  9,
+      proc{|y|Integer(23.2588+0.242194*(y-1980))-Integer((y-1983)/4.0)} ],
+    ["秋分の日" ,   1980..2099,  9,
+      proc{|y|Integer(23.2488+0.242194*(y-1980))-Integer((y-1980)/4.0)} ],
+    ["皇太子明仁親王の結婚の儀", 1959..1959,  4, 10 ],
+    ["昭和天皇の大喪の礼",       1989..1989,  2, 24 ],
+    ["即位礼正殿の儀",           1990..1990, 11, 12 ],
+    ["皇太子徳仁親王の結婚の儀", 1993..1993,  6,  9 ]
+  ]
+  DATA.each{|x| x[0].freeze; x.freeze }
+  DATA.freeze
+  TABLE = {}
+  FURIKAE_START = Date.new(1973,4,12).freeze
 
   module_function
 
@@ -86,14 +81,14 @@ module HolidayJapan
     # compensating holiday
     if y >= 2007
       a.each do |d|
-        if d.wday==Sun
+        if d.wday==SUN
 	  d+=1 while h[d]
 	  h[d] = "振替休日"
 	end
       end
     elsif y >= 1973
       a.each do |d|
-        if d.wday==Sun and d>=FURIKAE_START
+        if d.wday==SUN and d>=FURIKAE_START
 	  h[d+1] = "振替休日"
 	end
       end
@@ -101,7 +96,7 @@ module HolidayJapan
     # consecutive holiday
     if y >= 1986
       a.each do |d|
-        if h[d+2] and !h[d+1] and d.wday!=Sat
+        if h[d+2] and !h[d+1] and d.wday!=SAT
           h[d+1] = "国民の休日"
         end
       end
