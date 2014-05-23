@@ -14,7 +14,7 @@
 
             gem install holiday_japan
 
- * または、[holiday_japan.rb](https://github.com/masa16/holiday_japan/blob/master/lib/holiday_japan.rb) 
+ * または、[holiday_japan.rb](https://github.com/masa16/holiday_japan/blob/master/lib/holiday_japan.rb)
    のファイルを ruby のライブラリパスに置く
  * 自分のスクリプトの初めに次のように書いて、 holiday_japan.rb をロードする
 
@@ -79,6 +79,7 @@
     NO WARRANTY.
 
 ## Version:
+    2014-05-23  ver 1.1  「山の日」追加
     2012-12-23  ver 1.0  モジュール名を Holiday から HolidayJapan に変更
     2007-08-02  ver 0.9  リファクタリング
     2007-03-08  ver 0.8  祝日データクラスを統一、データを配列で記述
