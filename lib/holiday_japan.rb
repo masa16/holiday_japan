@@ -6,7 +6,7 @@ require "date"
 
 module HolidayJapan
 
-  VERSION = "1.1.0"
+  VERSION = "1.2.0"
 
   WEEK1 = 1..7
   WEEK2 = 8..14
@@ -121,6 +121,30 @@ module HolidayJapan
     year = Integer(year)
     TABLE[year] ||= create_table(year)
     TABLE[year].sort_by{|x| x[0]}
+  end
+
+  def hash_year(year)
+    TABLE[year] ||= create_table(year)
+  end
+
+  def between(from_date,to_date)
+    if from_date > to_date
+      raise ArgumentError, "to_date is earlier than from_date"
+    end
+    y1 = from_date.year
+    y2 = to_date.year
+    if y1 == y2
+      result = hash_year(y1).select{|d,n| d >= from_date && d <= to_date}
+    else
+      result = hash_year(y1).select{|d,n| d >= from_date}
+      y = y1 + 1
+      while y < y2
+        result.merge!(hash_year(y))
+        y += 1
+      end
+      hash_year(y).each{|d,n| result[d]=n if d <= to_date}
+    end
+    result
   end
 
   def print_year(year)
