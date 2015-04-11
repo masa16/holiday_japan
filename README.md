@@ -20,33 +20,33 @@
             require 'holiday_japan'
 
 ## module HolidayJapan
+#### モジュール関数
 
-### モジュール関数
-* check(date) : Dateクラスのオブジェクトによる祝日判定
+* check(date) -- Dateクラスのオブジェクトによる祝日判定
 
         if HolidayJapan.check(Date.today)
           ...
 
-* name(date) : 日付が祝日の場合は祝日名を返し、祝日でなければ nil を返す。
+* name(date) -- 日付が祝日の場合は祝日名を返し、祝日でなければ nil を返す。
 
         name = HolidayJapan.name(Date.new(2007,3,22))
 
-* list_year(year) : ある年について、 [日付, 祝日名] のArrayを返す
+* list_year(year) -- ある年について、 [日付, 祝日名] のArrayを返す
 
         list = HolidayJapan.list_year(2007)
 
-* hash_year(year) : ある年について、 {日付=>祝日名} のHashを返す
+* hash_year(year) -- ある年について、 {日付=>祝日名} のHashを返す
 
         list = HolidayJapan.hash_year(2007)
 
-* print_year(year) : ある年の祝日一覧をプリント
-
-        HolidayJapan.print_year(2007)
-
-* hash_between(from_date,to_date) : from_date から to_date までの祝日について、
+* between(from_date,to_date) -- from_date から to_date までの祝日について、
 {日付=>祝日名}のHashを返す
 
         hash = HolidayJapan.hash_between(Date.new(2014,7,1),Date.new(2015,6,30))
+
+* print_year(year) -- ある年の祝日一覧をプリント
+
+        HolidayJapan.print_year(2007)
 
 ## コマンドラインから祝日一覧を表示
 
@@ -79,12 +79,13 @@
     Masahiro TANAKA
 
 ## Copyright:
-    (C) Copyright 2003-2013 by Masahiro TANAKA
+    (C) Copyright 2003-2015 by Masahiro TANAKA
     This program is free software under MIT license.
     See LICENSE.txt.
     NO WARRANTY.
 
 ## Version:
+    2015-04-11  ver 1.2  hash_year, between 関数追加
     2014-05-23  ver 1.1  「山の日」追加
     2012-12-23  ver 1.0  モジュール名を Holiday から HolidayJapan に変更
     2007-08-02  ver 0.9  リファクタリング
