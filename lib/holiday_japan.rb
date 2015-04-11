@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# (C) Copyright 2003-2013 by Masahiro TANAKA
+# (C) Copyright 2003-2015 by Masahiro TANAKA
 # This program is free software under MIT license.
 # NO WARRANTY.
 require "date"
