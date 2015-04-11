@@ -42,10 +42,9 @@
 
         list = HolidayJapan.hash_year(2007)
 
-* `between(from_date,to_date)` ― from_date から to_date までの祝日について、
-{日付=>祝日名}のHashを返す
+* `between(from_date,to_date)` ― from_date から to_date までの祝日について、{日付=>祝日名}のHashを返す
 
-        hash = HolidayJapan.hash_between(Date.new(2014,7,1),Date.new(2015,6,30))
+        hash = HolidayJapan.between(Date.new(2014,7,1),Date.new(2015,6,30))
 
 * `print_year(year)` ― ある年の祝日一覧をプリント
 
