@@ -13,38 +13,39 @@
             gem install holiday_japan
 
  * または、[holiday_japan.rb](https://github.com/masa16/holiday_japan/blob/master/lib/holiday_japan.rb)
-   のファイルを ruby のライブラリパスに置く
+   のスクリプトファイルを ruby のライブラリパスに置く
 
- * 自分のスクリプトの初めに次のように書いて、 holiday_japan.rb をロードする
+## プログラムの読み込み
+ * 自分のスクリプトの先頭に次のように書いて、 holiday_japan.rb をロードする
 
             require 'holiday_japan'
 
 ## module HolidayJapan
 #### モジュール関数
 
-* check(date) -- Dateクラスのオブジェクトによる祝日判定
+* `check(date)` ― Dateクラスのオブジェクトによる祝日判定
 
         if HolidayJapan.check(Date.today)
           ...
 
-* name(date) -- 日付が祝日の場合は祝日名を返し、祝日でなければ nil を返す。
+* `name(date)` ― 日付が祝日の場合は祝日名を返し、祝日でなければ nil を返す。
 
         name = HolidayJapan.name(Date.new(2007,3,22))
 
-* list_year(year) -- ある年について、 [日付, 祝日名] のArrayを返す
+* `list_year(year)` ― ある年について、 [日付, 祝日名] のArrayを返す
 
         list = HolidayJapan.list_year(2007)
 
-* hash_year(year) -- ある年について、 {日付=>祝日名} のHashを返す
+* `hash_year(year)` ― ある年について、 {日付=>祝日名} のHashを返す
 
         list = HolidayJapan.hash_year(2007)
 
-* between(from_date,to_date) -- from_date から to_date までの祝日について、
+* `between(from_date,to_date)` ― from_date から to_date までの祝日について、
 {日付=>祝日名}のHashを返す
 
         hash = HolidayJapan.hash_between(Date.new(2014,7,1),Date.new(2015,6,30))
 
-* print_year(year) -- ある年の祝日一覧をプリント
+* `print_year(year)` ― ある年の祝日一覧をプリント
 
         HolidayJapan.print_year(2007)
 
