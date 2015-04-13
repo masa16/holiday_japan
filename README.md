@@ -17,13 +17,12 @@
  * または、[holiday_japan.rb](https://github.com/masa16/holiday_japan/blob/master/lib/holiday_japan.rb)
    のスクリプトファイルを ruby のライブラリパスに置く
 
-## プログラムの読み込み
- * 自分のスクリプトの先頭に次のように書いて、 holiday_japan.rb をロードする
+## 使い方
+ * holiday_japan.rb をロードする
 
             require 'holiday_japan'
 
-## module HolidayJapan
-#### モジュール関数
+### HolidayJapan モジュール関数
 
 * `check(date)` ― Dateクラスのオブジェクトによる祝日判定
 
