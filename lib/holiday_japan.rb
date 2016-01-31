@@ -6,14 +6,14 @@ require "date"
 
 module HolidayJapan
 
-  VERSION = "1.2.1"
+  VERSION = "1.2.2"
 
   WEEK1 = 1..7
   WEEK2 = 8..14
   WEEK3 = 15..21
   WEEK4 = 22..28
   SUN,MON,TUE,WED,THU,FRU,SAT = (0..6).to_a
-  INF = (defined? Float::INFINITYs) ? Float::INFINITY : 1e34
+  INF = (defined? Float::INFINITY) ? Float::INFINITY : 1e34
 
   # 祝日データ: 1948年7月20日以降で有効
   DATA = [
