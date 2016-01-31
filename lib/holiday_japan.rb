@@ -6,14 +6,14 @@ require "date"
 
 module HolidayJapan
 
-  VERSION = "1.2.0"
+  VERSION = "1.2.1"
 
   WEEK1 = 1..7
   WEEK2 = 8..14
   WEEK3 = 15..21
   WEEK4 = 22..28
   SUN,MON,TUE,WED,THU,FRU,SAT = (0..6).to_a
-  INF = 1.0/0.0
+  INF = (defined? Float::INFINITYs) ? Float::INFINITY : 1e34
 
   # 祝日データ: 1948年7月20日以降で有効
   DATA = [
@@ -41,10 +41,14 @@ module HolidayJapan
       proc{|y|Integer(20.8357+0.242194*(y-1980))-Integer((y-1983)/4.0)} ],
     ["春分の日",    1980..2099,  3,
       proc{|y|Integer(20.8431+0.242194*(y-1980))-Integer((y-1980)/4.0)} ],
+    ["春分の日",    2100..2150,  3,
+      proc{|y|Integer(21.8510+0.242194*(y-1980))-Integer((y-1980)/4.0)} ],
     ["秋分の日" ,   1948..1979,  9,
       proc{|y|Integer(23.2588+0.242194*(y-1980))-Integer((y-1983)/4.0)} ],
     ["秋分の日" ,   1980..2099,  9,
       proc{|y|Integer(23.2488+0.242194*(y-1980))-Integer((y-1980)/4.0)} ],
+    ["秋分の日" ,   2100..2150,  9,
+      proc{|y|Integer(24.2488+0.242194*(y-1980))-Integer((y-1980)/4.0)} ],
     ["皇太子明仁親王の結婚の儀", 1959..1959,  4, 10 ],
     ["昭和天皇の大喪の礼",       1989..1989,  2, 24 ],
     ["即位礼正殿の儀",           1990..1990, 11, 12 ],
