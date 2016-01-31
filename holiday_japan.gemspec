@@ -8,8 +8,8 @@ Gem::Specification.new do |gem|
   gem.version       = HolidayJapan::VERSION
   gem.authors       = ["Masahiro TANAKA"]
   gem.email         = ["masa16.tanaka@gmail.com"]
-  gem.description   = %q{Calculate National Holidays of Japan}
   gem.summary       = %q{Calculate National Holidays of Japan}
+  gem.description   = %q{Calculate National Holidays of Japan between 1948..2150}
   gem.homepage      = "http://masa16.github.io/holiday_japan/"
   gem.license       = "MIT"
 
