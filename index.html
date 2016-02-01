@@ -5,14 +5,14 @@
     <title>holiday_japan - 日本の祝日判定Rubyプログラム by masa16</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
   </head>
   <body>
     <section class="page-header">
       <h1 class="project-name">holiday_japan - 日本の祝日判定Rubyプログラム</h1>
-      <h2 class="project-tagline">Calculate National Holidays of Japan</h2>
+      <h2 class="project-tagline">Calculate National Holidays of Japan between 1948..2150</h2>
       <a href="https://github.com/masa16/holiday_japan" class="btn">View on GitHub</a>
       <a href="https://github.com/masa16/holiday_japan/zipball/master" class="btn">Download .zip</a>
       <a href="https://github.com/masa16/holiday_japan/tarball/master" class="btn">Download .tar.gz</a>
@@ -20,13 +20,13 @@
 
     <section class="main-content">
       <h1>
-<a id="日本の祝日判定rubyプログラム" class="anchor" href="#%E6%97%A5%E6%9C%AC%E3%81%AE%E7%A5%9D%E6%97%A5%E5%88%A4%E5%AE%9Aruby%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0" aria-hidden="true"><span class="octicon octicon-link"></span></a>日本の祝日判定Rubyプログラム</h1>
+<a id="日本の祝日判定rubyプログラム" class="anchor" href="#%E6%97%A5%E6%9C%AC%E3%81%AE%E7%A5%9D%E6%97%A5%E5%88%A4%E5%AE%9Aruby%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>日本の祝日判定Rubyプログラム</h1>
 
 <p>(<a href="https://github.com/masa16/holiday_japan">GitHub</a>),
 (<a href="https://rubygems.org/gems/holiday_japan">RubyGems</a>)</p>
 
 <h2>
-<a id="特徴" class="anchor" href="#%E7%89%B9%E5%BE%B4" aria-hidden="true"><span class="octicon octicon-link"></span></a>特徴</h2>
+<a id="特徴" class="anchor" href="#%E7%89%B9%E5%BE%B4" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>特徴</h2>
 
 <ul>
 <li>1948年7月20日以降の日本の国民の祝日、振替休日、および国民の休日を計算して判定する</li>
@@ -41,7 +41,7 @@
 </ul>
 
 <h2>
-<a id="インストール" class="anchor" href="#%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB" aria-hidden="true"><span class="octicon octicon-link"></span></a>インストール</h2>
+<a id="インストール" class="anchor" href="#%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>インストール</h2>
 
 <ul>
 <li>
@@ -55,36 +55,36 @@
 </ul>
 
 <h2>
-<a id="使い方" class="anchor" href="#%E4%BD%BF%E3%81%84%E6%96%B9" aria-hidden="true"><span class="octicon octicon-link"></span></a>使い方</h2>
+<a id="使い方" class="anchor" href="#%E4%BD%BF%E3%81%84%E6%96%B9" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>使い方</h2>
 
 <ul>
 <li>
 <p>holiday_japan.rb をロードする</p>
 
-<div class="highlight highlight-ruby"><pre><span class="pl-k">require</span> <span class="pl-s"><span class="pl-pds">'</span>holiday_japan<span class="pl-pds">'</span></span></pre></div>
+<div class="highlight highlight-source-ruby"><pre><span class="pl-k">require</span> <span class="pl-s"><span class="pl-pds">'</span>holiday_japan<span class="pl-pds">'</span></span></pre></div>
 </li>
 </ul>
 
 <h3>
-<a id="holidayjapan-モジュール関数" class="anchor" href="#holidayjapan-%E3%83%A2%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB%E9%96%A2%E6%95%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>HolidayJapan モジュール関数</h3>
+<a id="holidayjapan-モジュール関数" class="anchor" href="#holidayjapan-%E3%83%A2%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB%E9%96%A2%E6%95%B0" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>HolidayJapan モジュール関数</h3>
 
 <ul>
 <li>
 <p><code>check(date)</code> ― Dateクラスのオブジェクトによる祝日判定</p>
 
-<div class="highlight highlight-ruby"><pre><span class="pl-c1">HolidayJapan</span>.check(<span class="pl-c1">Date</span>.<span class="pl-k">new</span>(<span class="pl-c1">2015</span>,<span class="pl-c1">3</span>,<span class="pl-c1">21</span>))
+<div class="highlight highlight-source-ruby"><pre><span class="pl-c1">HolidayJapan</span>.check(<span class="pl-c1">Date</span>.<span class="pl-k">new</span>(<span class="pl-c1">2015</span>,<span class="pl-c1">3</span>,<span class="pl-c1">21</span>))
 =&gt; <span class="pl-c1">true</span></pre></div>
 </li>
 <li>
 <p><code>name(date)</code> ― 日付が祝日の場合は祝日名を返し、祝日でなければ nil を返す。</p>
 
-<div class="highlight highlight-ruby"><pre><span class="pl-c1">HolidayJapan</span>.name(<span class="pl-c1">Date</span>.<span class="pl-k">new</span>(<span class="pl-c1">2015</span>,<span class="pl-c1">3</span>,<span class="pl-c1">21</span>))
+<div class="highlight highlight-source-ruby"><pre><span class="pl-c1">HolidayJapan</span>.name(<span class="pl-c1">Date</span>.<span class="pl-k">new</span>(<span class="pl-c1">2015</span>,<span class="pl-c1">3</span>,<span class="pl-c1">21</span>))
 =&gt; <span class="pl-s"><span class="pl-pds">"</span>春分の日<span class="pl-pds">"</span></span></pre></div>
 </li>
 <li>
 <p><code>list_year(year)</code> ― ある年について、 [日付, 祝日名] のArrayを返す</p>
 
-<div class="highlight highlight-ruby"><pre><span class="pl-c1">HolidayJapan</span>.list_year(<span class="pl-c1">2015</span>)
+<div class="highlight highlight-source-ruby"><pre><span class="pl-c1">HolidayJapan</span>.list_year(<span class="pl-c1">2015</span>)
 =&gt; [[<span class="pl-c">#&lt;Date: 2015-01-01&gt;, "元日"],</span>
     [<span class="pl-c">#&lt;Date: 2015-01-12&gt;, "成人の日"],</span>
     [<span class="pl-c">#&lt;Date: 2015-02-11&gt;, "建国記念の日"],</span>
@@ -106,7 +106,7 @@
 <li>
 <p><code>hash_year(year)</code> ― ある年について、 {日付=&gt;祝日名} のHashを返す</p>
 
-<div class="highlight highlight-ruby"><pre><span class="pl-c1">HolidayJapan</span>.hash_year(<span class="pl-c1">2015</span>)
+<div class="highlight highlight-source-ruby"><pre><span class="pl-c1">HolidayJapan</span>.hash_year(<span class="pl-c1">2015</span>)
 =&gt; {<span class="pl-c">#&lt;Date: 2015-01-01&gt;=&gt;"元日",</span>
     <span class="pl-c">#&lt;Date: 2015-01-12&gt;=&gt;"成人の日",</span>
     <span class="pl-c">#&lt;Date: 2015-02-11&gt;=&gt;"建国記念の日",</span>
@@ -128,7 +128,7 @@
 <li>
 <p><code>between(from_date,to_date)</code> ― from_date から to_date までの祝日について、{日付=&gt;祝日名}のHashを返す</p>
 
-<div class="highlight highlight-ruby"><pre><span class="pl-c1">HolidayJapan</span>.between(<span class="pl-c1">Date</span>.<span class="pl-k">new</span>(<span class="pl-c1">2014</span>,<span class="pl-c1">7</span>,<span class="pl-c1">1</span>),<span class="pl-c1">Date</span>.<span class="pl-k">new</span>(<span class="pl-c1">2015</span>,<span class="pl-c1">6</span>,<span class="pl-c1">30</span>))
+<div class="highlight highlight-source-ruby"><pre><span class="pl-c1">HolidayJapan</span>.between(<span class="pl-c1">Date</span>.<span class="pl-k">new</span>(<span class="pl-c1">2014</span>,<span class="pl-c1">7</span>,<span class="pl-c1">1</span>),<span class="pl-c1">Date</span>.<span class="pl-k">new</span>(<span class="pl-c1">2015</span>,<span class="pl-c1">6</span>,<span class="pl-c1">30</span>))
 =&gt; {<span class="pl-c">#&lt;Date: 2014-07-21&gt;=&gt;"海の日",</span>
     <span class="pl-c">#&lt;Date: 2014-09-15&gt;=&gt;"敬老の日",</span>
     <span class="pl-c">#&lt;Date: 2014-10-13&gt;=&gt;"体育の日",</span>
@@ -150,7 +150,7 @@
 <li>
 <p><code>print_year(year)</code> ― ある年の祝日一覧をプリント</p>
 
-<div class="highlight highlight-ruby"><pre><span class="pl-c1">HolidayJapan</span>.print_year(<span class="pl-c1">2015</span>)</pre></div>
+<div class="highlight highlight-source-ruby"><pre><span class="pl-c1">HolidayJapan</span>.print_year(<span class="pl-c1">2015</span>)</pre></div>
 
 <pre><code>listing year 2015...
 2015-01-01 Thu 元日
@@ -175,7 +175,7 @@
 </ul>
 
 <h2>
-<a id="コマンドラインから祝日一覧を表示" class="anchor" href="#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%83%A9%E3%82%A4%E3%83%B3%E3%81%8B%E3%82%89%E7%A5%9D%E6%97%A5%E4%B8%80%E8%A6%A7%E3%82%92%E8%A1%A8%E7%A4%BA" aria-hidden="true"><span class="octicon octicon-link"></span></a>コマンドラインから祝日一覧を表示</h2>
+<a id="コマンドラインから祝日一覧を表示" class="anchor" href="#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%83%A9%E3%82%A4%E3%83%B3%E3%81%8B%E3%82%89%E7%A5%9D%E6%97%A5%E4%B8%80%E8%A6%A7%E3%82%92%E8%A1%A8%E7%A4%BA" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>コマンドラインから祝日一覧を表示</h2>
 
 <pre><code>$ ruby -r holiday_japan -e 'HolidayJapan.print_year 2016'
 listing year 2016...
@@ -199,21 +199,22 @@ listing year 2016...
 </code></pre>
 
 <h2>
-<a id="祝日データ" class="anchor" href="#%E7%A5%9D%E6%97%A5%E3%83%87%E3%83%BC%E3%82%BF" aria-hidden="true"><span class="octicon octicon-link"></span></a>祝日データ</h2>
+<a id="祝日データ" class="anchor" href="#%E7%A5%9D%E6%97%A5%E3%83%87%E3%83%BC%E3%82%BF" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>祝日データ</h2>
 
 <ul>
 <li>1948年7月20日(祝日法発令) 以降の祝日に対応</li>
-<li>2016年の<a href="http://eco.mtk.nao.ac.jp/koyomi/yoko/">暦要項</a>まで確認（法改正がない限り以降も有効）</li>
+<li>2017年の<a href="http://eco.mtk.nao.ac.jp/koyomi/yoko/">暦要項</a>まで確認（法改正がない限り以降も有効）</li>
+<li>春分の日・秋分の日の計算は2150年まで</li>
 </ul>
 
 <h2>
-<a id="author" class="anchor" href="#author" aria-hidden="true"><span class="octicon octicon-link"></span></a>Author:</h2>
+<a id="author" class="anchor" href="#author" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Author:</h2>
 
 <pre><code>Masahiro TANAKA
 </code></pre>
 
 <h2>
-<a id="copyright" class="anchor" href="#copyright" aria-hidden="true"><span class="octicon octicon-link"></span></a>Copyright:</h2>
+<a id="copyright" class="anchor" href="#copyright" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Copyright:</h2>
 
 <pre><code>(C) Copyright 2003-2015 by Masahiro TANAKA
 This program is free software under MIT license.
@@ -222,7 +223,7 @@ NO WARRANTY.
 </code></pre>
 
 <h2>
-<a id="version" class="anchor" href="#version" aria-hidden="true"><span class="octicon octicon-link"></span></a>Version:</h2>
+<a id="version" class="anchor" href="#version" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Version:</h2>
 
 <pre><code>2015-04-11  ver 1.2  hash_year, between 関数追加
 2014-05-23  ver 1.1  「山の日」追加
@@ -251,4 +252,3 @@ NO WARRANTY.
   
   </body>
 </html>
-
