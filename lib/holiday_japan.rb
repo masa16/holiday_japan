@@ -66,12 +66,12 @@ module HolidayJapan
     if year_range === year
       case day
       when Fixnum
-	Date.new( year, mon, day )
+  Date.new( year, mon, day )
       when Range
-	wday0 = Date.new(year,mon,day.first).wday
-	Date.new( year, mon, day.first+(wday-wday0+7)%7 )
+  wday0 = Date.new(year,mon,day.first).wday
+  Date.new( year, mon, day.first+(wday-wday0+7)%7 )
       when Proc
-	Date.new( year, mon, day.call(year) )
+  Date.new( year, mon, day.call(year) )
       end
     end
   end
@@ -83,22 +83,22 @@ module HolidayJapan
     DATA.each do |x|
       if d = holiday_date(y,x)
         h[d] = x[0]
-	a << d
+  a << d
       end
     end
     # compensating holiday
     if y >= 2007
       a.each do |d|
         if d.wday==SUN
-	  d+=1 while h[d]
-	  h[d] = "振替休日"
-	end
+    d+=1 while h[d]
+    h[d] = "振替休日"
+  end
       end
     elsif y >= 1973
       a.each do |d|
         if d.wday==SUN and d>=FURIKAE_START
-	  h[d+1] = "振替休日"
-	end
+    h[d+1] = "振替休日"
+  end
       end
     end
     # consecutive holiday
