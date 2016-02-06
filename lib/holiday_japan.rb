@@ -38,17 +38,17 @@ module HolidayJapan
     ["勤労感謝の日",1948..INF , 11,  23        ],
     ["天皇誕生日",  1989..INF , 12,  23        ],
     ["春分の日",    1949..1979,  3,
-      proc{|y|Integer(20.8357+0.242194*(y-1980))-Integer((y-1983)/4.0)} ],
+     proc{|y|Integer(20.8357+0.242194*(y-1980))-Integer((y-1983)/4.0)} ],
     ["春分の日",    1980..2099,  3,
-      proc{|y|Integer(20.8431+0.242194*(y-1980))-Integer((y-1980)/4.0)} ],
+     proc{|y|Integer(20.8431+0.242194*(y-1980))-Integer((y-1980)/4.0)} ],
     ["春分の日",    2100..2150,  3,
-      proc{|y|Integer(21.8510+0.242194*(y-1980))-Integer((y-1980)/4.0)} ],
+     proc{|y|Integer(21.8510+0.242194*(y-1980))-Integer((y-1980)/4.0)} ],
     ["秋分の日" ,   1948..1979,  9,
-      proc{|y|Integer(23.2588+0.242194*(y-1980))-Integer((y-1983)/4.0)} ],
+     proc{|y|Integer(23.2588+0.242194*(y-1980))-Integer((y-1983)/4.0)} ],
     ["秋分の日" ,   1980..2099,  9,
-      proc{|y|Integer(23.2488+0.242194*(y-1980))-Integer((y-1980)/4.0)} ],
+     proc{|y|Integer(23.2488+0.242194*(y-1980))-Integer((y-1980)/4.0)} ],
     ["秋分の日" ,   2100..2150,  9,
-      proc{|y|Integer(24.2488+0.242194*(y-1980))-Integer((y-1980)/4.0)} ],
+     proc{|y|Integer(24.2488+0.242194*(y-1980))-Integer((y-1980)/4.0)} ],
     ["皇太子明仁親王の結婚の儀", 1959..1959,  4, 10 ],
     ["昭和天皇の大喪の礼",       1989..1989,  2, 24 ],
     ["即位礼正殿の儀",           1990..1990, 11, 12 ],
@@ -66,12 +66,12 @@ module HolidayJapan
     if year_range === year
       case day
       when Fixnum
-	Date.new( year, mon, day )
+        Date.new( year, mon, day )
       when Range
-	wday0 = Date.new(year,mon,day.first).wday
-	Date.new( year, mon, day.first+(wday-wday0+7)%7 )
+        wday0 = Date.new(year,mon,day.first).wday
+        Date.new( year, mon, day.first+(wday-wday0+7)%7 )
       when Proc
-	Date.new( year, mon, day.call(year) )
+        Date.new( year, mon, day.call(year) )
       end
     end
   end
@@ -83,22 +83,22 @@ module HolidayJapan
     DATA.each do |x|
       if d = holiday_date(y,x)
         h[d] = x[0]
-	a << d
+        a << d
       end
     end
     # compensating holiday
     if y >= 2007
       a.each do |d|
         if d.wday==SUN
-	  d+=1 while h[d]
-	  h[d] = "振替休日"
-	end
+          d+=1 while h[d]
+          h[d] = "振替休日"
+        end
       end
     elsif y >= 1973
       a.each do |d|
         if d.wday==SUN and d>=FURIKAE_START
-	  h[d+1] = "振替休日"
-	end
+          h[d+1] = "振替休日"
+        end
       end
     end
     # consecutive holiday
