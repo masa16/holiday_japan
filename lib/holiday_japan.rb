@@ -6,12 +6,12 @@ require "date"
 
 module HolidayJapan
 
-  VERSION = "1.2.2"
+  VERSION = "1.2.3"
 
-  WEEK1 = 1..7
-  WEEK2 = 8..14
-  WEEK3 = 15..21
-  WEEK4 = 22..28
+  WEEK1 =  1
+  WEEK2 =  8
+  WEEK3 = 15
+  WEEK4 = 22
   SUN,MON,TUE,WED,THU,FRU,SAT = (0..6).to_a
   INF = (defined? Float::INFINITY) ? Float::INFINITY : 1e34
 
@@ -65,11 +65,13 @@ module HolidayJapan
     name,year_range,mon,day,wday = data
     if year_range === year
       case day
-      when Fixnum
-        Date.new( year, mon, day )
-      when Range
-        wday0 = Date.new(year,mon,day.first).wday
-        Date.new( year, mon, day.first+(wday-wday0+7)%7 )
+      when Integer
+        if wday
+          wday0 = Date.new(year,mon,day).wday
+          Date.new( year, mon, day+(wday-wday0+7)%7 )
+        else
+          Date.new( year, mon, day )
+        end
       when Proc
         Date.new( year, mon, day.call(year) )
       end
@@ -151,13 +153,23 @@ module HolidayJapan
     result
   end
 
-  def print_year(year)
+  def _print_year(year)
     puts "listing year #{year}..."
     list_year(year).each do |y|
       puts "#{y[0].strftime('%Y-%m-%d %a')} #{y[1]}"
     end
   end
 
+  def print_year(year)
+    case year
+    when Range
+      year.each do |y|
+        _print_year(y)
+      end
+    else
+      _print_year(year)
+    end
+  end
 end
 
 
@@ -171,5 +183,10 @@ end
 # command line
 if __FILE__ == $0
   # print holiday list of the year
-  HolidayJapan.print_year(ARGV[0])
+  begin
+    arg = eval(ARGV[0])
+  rescue
+    raise ArgumentError,"invalid argument : #{ARGV[0]}"
+  end
+  HolidayJapan.print_year(arg)
 end
