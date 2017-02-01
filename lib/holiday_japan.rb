@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# (C) Copyright 2003-2015 by Masahiro TANAKA
+# (C) Copyright 2003-2017 by Masahiro TANAKA
 # This program is free software under MIT license.
 # NO WARRANTY.
 require "date"
@@ -21,6 +21,7 @@ module HolidayJapan
     ["成人の日",    1949..1999,  1,  15        ],
     ["成人の日",    2000..INF ,  1, WEEK2, MON ],
     ["建国記念の日",1967..INF ,  2,  11        ],
+    ["天皇誕生日",  2019..INF ,  2,  23        ],
     ["天皇誕生日",  1949..1988,  4,  29        ],
     ["みどりの日",  1989..2006,  4,  29        ],
     ["昭和の日",    2007..INF ,  4,  29        ],
@@ -36,7 +37,7 @@ module HolidayJapan
     ["体育の日",    2000..INF , 10, WEEK2, MON ],
     ["文化の日",    1948..INF , 11,   3        ],
     ["勤労感謝の日",1948..INF , 11,  23        ],
-    ["天皇誕生日",  1989..INF , 12,  23        ],
+    ["天皇誕生日",  1989..2018, 12,  23        ],
     ["春分の日",    1949..1979,  3,
      proc{|y|Integer(20.8357+0.242194*(y-1980))-Integer((y-1983)/4.0)} ],
     ["春分の日",    1980..2099,  3,
