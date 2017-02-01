@@ -1,0 +1,8 @@
+title: holiday_japan - 日本の祝日判定Rubyプログラム
+description: Calculate National Holidays of Japan between 1948..2150
+google_analytics: 
+show_downloads: true
+theme: jekyll-theme-cayman
+
+gems:
+  - jekyll-mentions
