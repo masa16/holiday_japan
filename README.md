@@ -32,14 +32,17 @@
 ### HolidayJapan モジュール関数
 
 * `check(date)` ― Dateクラスのオブジェクトによる祝日判定
+
   ```ruby
   HolidayJapan.check(Date.new(2017,3,20))
   => true
   ```
 
 * `name(date)` ― 日付が祝日の場合は祝日名を返し、祝日でなければ nil を返す。
+
   ```ruby
   HolidayJapan.name(Date.new(2017,3,20))
+  => "春分の日"
   ```
 
 * `print_year(year)` ― ある年の祝日一覧をプリント
