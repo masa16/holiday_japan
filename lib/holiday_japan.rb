@@ -63,7 +63,7 @@ module HolidayJapan
   module_function
 
   def holiday_date(year,data)
-    name,year_range,mon,day,wday = data
+    year_range,mon,day,wday = data[1..4]
     if year_range === year
       case day
       when Integer
@@ -187,7 +187,9 @@ if __FILE__ == $0
   begin
     arg = eval(ARGV[0])
   rescue
-    raise ArgumentError,"invalid argument : #{ARGV[0]}"
+    raise ArgumentError,"invalid argument : #{ARGV[0].inspect}
+ usage:
+    ruby holiday_japan.rb year"
   end
   HolidayJapan.print_year(arg)
 end
