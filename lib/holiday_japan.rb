@@ -112,7 +112,7 @@ module HolidayJapan
         end
       end
     end
-    h.freeze
+    Hash[h.sort_by{|d,| d}].freeze
   end
 
   def name(date)
@@ -135,6 +135,8 @@ module HolidayJapan
   end
 
   def between(from_date,to_date)
+    from_date = Date.new(from_date,1,1) if from_date.kind_of?(Integer)
+    to_date   = Date.new(to_date,12,31) if to_date.kind_of?(Integer)
     if from_date > to_date
       raise ArgumentError, "to_date is earlier than from_date"
     end
