@@ -23,7 +23,7 @@
 
 ## 使い方
 
-* holiday_japan.rb をロードする
+### モジュールをロード
 
   ```ruby
   require 'holiday_japan'
@@ -138,9 +138,7 @@
       #<Date: 2018-02-12 ((2458162j,0s,0n),+0s,2299161j)>=>"振替休日"}
   ```
 
-## 使用例
-
-* CSVに出力
+### 祝日データをCSVに出力
 
   ```
   $ ruby -r csv -r holiday_japan -e 'CSV.open("holiday.csv","w"){|c| HolidayJapan.between(2016,2018).each{|a| c<<a}}'
@@ -155,7 +153,7 @@
   2018-12-24,振替休日
   ```
 
-##  祝日データ
+## 祝日データ
 
 * 1948年7月20日(祝日法発令) 以降の祝日に対応
 * 2018年の[暦要項](http://eco.mtk.nao.ac.jp/koyomi/yoko/)まで確認（法改正がない限り以降も有効）
