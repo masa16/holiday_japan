@@ -4,7 +4,8 @@
 ([RubyGems](https://rubygems.org/gems/holiday_japan))
 
 ## 特徴
-* 1948年7月20日以降の日本の国民の祝日、振替休日、および国民の休日を計算して判定する
+* 1948年7月20日以降の日本の国民の祝日、振替休日、および国民の休日を計算して判定。
+* スクリプトコード([holiday_japan.rb](https://github.com/masa16/holiday_japan/blob/master/lib/holiday_japan.rb))は、祝日データを含めて200行弱とコンパクト。
 
 (date2 の holiday.rb と比較して)
 * 祝日をキャッシュすることにより、大量の日付について祝日判定する場合でも高速に動作
