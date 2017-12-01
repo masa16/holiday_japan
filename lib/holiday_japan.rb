@@ -136,8 +136,24 @@ module HolidayJapan
   end
 
   def between(from_date,to_date)
-    from_date = Date.new(from_date,1,1) if from_date.kind_of?(Integer)
-    to_date   = Date.new(to_date,12,31) if to_date.kind_of?(Integer)
+    case from_date
+    when String
+      from_date = Date.parse(from_date)
+    when Integer
+      from_date = Date.new(from_date,1,1)
+    when Date
+    else
+      raise ArgumentError, "invalid type fpr from_date"
+    end
+    case to_date
+    when String
+      to_date = Date.parse(to_date)
+    when Integer
+      to_date = Date.new(to_date,12,31)
+    when Date
+    else
+      raise ArgumentError, "invalid type fpr to_date"
+    end
     if from_date > to_date
       raise ArgumentError, "to_date is earlier than from_date"
     end
@@ -172,6 +188,12 @@ module HolidayJapan
       end
     else
       _print_year(year)
+    end
+  end
+
+  def print_between(from_date,to_date)
+    between(from_date,to_date).each do |y|
+      puts "#{y[0].strftime('%Y-%m-%d %a')} #{y[1]}"
     end
   end
 end
