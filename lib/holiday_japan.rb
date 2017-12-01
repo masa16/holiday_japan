@@ -6,7 +6,7 @@ require "date"
 
 module HolidayJapan
 
-  VERSION = "1.3.0"
+  VERSION = "1.3.1"
 
   WEEK1 =  1
   WEEK2 =  8
@@ -54,7 +54,6 @@ module HolidayJapan
     ["昭和天皇の大喪の礼",       1989..1989,  2, 24 ],
     ["即位礼正殿の儀",           1990..1990, 11, 12 ],
     ["皇太子徳仁親王の結婚の儀", 1993..1993,  6,  9 ],
-    ["即位礼正殿の儀",           2019..2019,  5,  1 ],
   ]
   DATA.each{|x| x[0].freeze; x.freeze }
   DATA.freeze
