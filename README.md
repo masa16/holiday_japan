@@ -175,12 +175,13 @@
     Masahiro TANAKA
 
 ## Copyright:
-    (C) Copyright 2003-2017 by Masahiro TANAKA
+    (C) Copyright 2003-2018 by Masahiro TANAKA
     This program is free software under MIT license.
     See LICENSE.txt.
     NO WARRANTY.
 
 ## Version:
+    2018-04-14  ver 1.4  祝日データ仕様変更、2020年対応
     2017-12-01  ver 1.3  print_between 関数追加
     2015-04-11  ver 1.2  hash_year, between 関数追加
     2014-05-23  ver 1.1  「山の日」追加

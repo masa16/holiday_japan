@@ -6,56 +6,57 @@ require "date"
 
 module HolidayJapan
 
-  VERSION = "1.3.1"
+  VERSION = "1.4.0"
 
   WEEK1 =  1
   WEEK2 =  8
   WEEK3 = 15
   WEEK4 = 22
   SUN,MON,TUE,WED,THU,FRU,SAT = (0..6).to_a
-  INF = (defined? Float::INFINITY) ? Float::INFINITY : 1e34
+  INF = 2**30
 
   # 祝日データ: 1948年7月20日以降で有効
   DATA = [
-    ["元日",        1949..INF ,  1,   1        ],
-    ["成人の日",    1949..1999,  1,  15        ],
-    ["成人の日",    2000..INF ,  1, WEEK2, MON ],
-    ["建国記念の日",1967..INF ,  2,  11        ],
-    ["天皇誕生日",  2020..INF ,  2,  23        ],
-    ["天皇誕生日",  1949..1988,  4,  29        ],
-    ["みどりの日",  1989..2006,  4,  29        ],
-    ["昭和の日",    2007..INF ,  4,  29        ],
-    ["憲法記念日",  1949..INF ,  5,   3        ],
-    ["みどりの日",  2007..INF ,  5,   4        ],
-    ["こどもの日",  1949..INF ,  5,   5        ],
-    ["海の日",      1996..2002,  7,  20        ],
-    ["海の日",      2003..INF ,  7, WEEK3, MON ],
-    ["山の日",      2016..INF ,  8,  11        ],
-    ["敬老の日",    1966..2002,  9,  15        ],
-    ["敬老の日",    2003..INF ,  9, WEEK3, MON ],
-    ["体育の日",    1966..1999, 10,  10        ],
-    ["体育の日",    2000..INF , 10, WEEK2, MON ],
-    ["文化の日",    1948..INF , 11,   3        ],
-    ["勤労感謝の日",1948..INF , 11,  23        ],
-    ["天皇誕生日",  1989..2018, 12,  23        ],
-    ["春分の日",    1949..1979,  3,
-     proc{|y|Integer(20.8357+0.242194*(y-1980))-Integer((y-1983)/4.0)} ],
-    ["春分の日",    1980..2099,  3,
-     proc{|y|Integer(20.8431+0.242194*(y-1980))-Integer((y-1980)/4.0)} ],
-    ["春分の日",    2100..2150,  3,
-     proc{|y|Integer(21.8510+0.242194*(y-1980))-Integer((y-1980)/4.0)} ],
-    ["秋分の日" ,   1948..1979,  9,
-     proc{|y|Integer(23.2588+0.242194*(y-1980))-Integer((y-1983)/4.0)} ],
-    ["秋分の日" ,   1980..2099,  9,
-     proc{|y|Integer(23.2488+0.242194*(y-1980))-Integer((y-1980)/4.0)} ],
-    ["秋分の日" ,   2100..2150,  9,
-     proc{|y|Integer(24.2488+0.242194*(y-1980))-Integer((y-1980)/4.0)} ],
-    ["皇太子明仁親王の結婚の儀", 1959..1959,  4, 10 ],
-    ["昭和天皇の大喪の礼",       1989..1989,  2, 24 ],
-    ["即位礼正殿の儀",           1990..1990, 11, 12 ],
-    ["皇太子徳仁親王の結婚の儀", 1993..1993,  6,  9 ],
+    ["元日",        [1949..INF ,  1,   1        ]],
+    ["成人の日",    [2000..INF ,  1, [WEEK2,MON]],
+                    [1949..1999,  1,  15        ]],
+    ["建国記念の日",[1967..INF ,  2,  11        ]],
+    ["昭和の日",    [2007..INF ,  4,  29        ]],
+    ["憲法記念日",  [1949..INF ,  5,   3        ]],
+    ["みどりの日",  [2007..INF ,  5,   4        ],
+                    [1989..2006,  4,  29        ]],
+    ["こどもの日",  [1949..INF ,  5,   5        ]],
+    ["海の日",      [2020,        7,  23        ],
+                    [2003..INF ,  7, [WEEK3,MON]],
+                    [1996..2002,  7,  20        ]],
+    ["山の日",      [2020,        8,  10        ],
+                    [2016..INF ,  8,  11        ]],
+    ["敬老の日",    [2003..INF ,  9, [WEEK3,MON]],
+                    [1966..2002,  9,  15        ]],
+    ["体育の日",    [2020,        7,  24        ],
+                    [2000..INF , 10, [WEEK2,MON]],
+                    [1966..1999, 10,  10        ]],
+    ["文化の日",    [1948..INF , 11,   3        ]],
+    ["勤労感謝の日",[1948..INF , 11,  23        ]],
+    ["天皇誕生日",  [2020..INF ,  2,  23        ],
+                    [1989..2018, 12,  23        ],
+                    [1949..1988,  4,  29        ]],
+    ["春分の日",
+     [1980..2099,  3, proc{|y|(20.8431+0.242194*(y-1980)).to_i-((y-1980)/4.0).to_i} ],
+     [1949..1979,  3, proc{|y|(20.8357+0.242194*(y-1980)).to_i-((y-1983)/4.0).to_i} ],
+     [2100..2150,  3, proc{|y|(21.8510+0.242194*(y-1980)).to_i-((y-1980)/4.0).to_i} ],
+    ],
+    ["秋分の日" ,
+     [1980..2099,  9, proc{|y|(23.2488+0.242194*(y-1980)).to_i-((y-1980)/4.0).to_i} ],
+     [1948..1979,  9, proc{|y|(23.2588+0.242194*(y-1980)).to_i-((y-1983)/4.0).to_i} ],
+     [2100..2150,  9, proc{|y|(24.2488+0.242194*(y-1980)).to_i-((y-1980)/4.0).to_i} ],
+    ],
+    ["皇太子明仁親王の結婚の儀",  [1959,  4, 10 ]],
+    ["昭和天皇の大喪の礼",        [1989,  2, 24 ]],
+    ["即位礼正殿の儀",            [1990, 11, 12 ]],
+    ["皇太子徳仁親王の結婚の儀",  [1993,  6,  9 ]],
   ]
-  DATA.each{|x| x[0].freeze; x.freeze }
+  DATA.each{|x| x.each{|y| y .freeze}}
   DATA.freeze
   TABLE = {}
   FURIKAE_START = Date.new(1973,4,12).freeze
@@ -63,20 +64,26 @@ module HolidayJapan
   module_function
 
   def holiday_date(year,data)
-    year_range,mon,day,wday = data[1..4]
-    if year_range === year
-      case day
-      when Integer
-        if wday
-          wday0 = Date.new(year,mon,day).wday
-          Date.new( year, mon, day+(wday-wday0+7)%7 )
+    data.each do |item|
+      next if item.kind_of?(String)
+      year_range,mon,day = *item
+      if year_range === year
+        case day
+        when Integer
+          # skip
+        when Array
+          day0,wday = day
+          wday0 = Date.new(year,mon,day0).wday
+          day = day0+(wday-wday0+7)%7
+        when Proc
+          day = day.call(year)
         else
-          Date.new( year, mon, day )
+          raise "invalid holiday data"
         end
-      when Proc
-        Date.new( year, mon, day.call(year) )
+        return Date.new( year, mon, day )
       end
     end
+    nil
   end
 
   def create_table(y)
