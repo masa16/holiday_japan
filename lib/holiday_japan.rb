@@ -6,7 +6,7 @@ require "date"
 
 module HolidayJapan
 
-  VERSION = "1.4.1"
+  VERSION = "1.4.2"
 
   WEEK1 =  1
   WEEK2 =  8
