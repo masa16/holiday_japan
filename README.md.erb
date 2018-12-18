@@ -1,0 +1,123 @@
+<%
+# erb -T 1 README.md.erb > README.md
+require 'pp'
+require 'holiday_japan'
+$indent='  '
+
+def x(sample)
+  a = eval(sample).pretty_inspect.each_line.to_a
+  [
+    "```ruby\n",
+    sample+"\n",
+    "=> "+a.shift,
+    *a.map{|x| "   "+x },
+    "```\n"
+  ].map{|x| $indent+x}.join
+end
+
+def c(sample)
+  [
+    "$ "+sample+"\n",
+    *`#{sample}`.each_line.to_a,
+  ].map{|x| $indent+x}.join
+end
+%>
+# 日本の祝日判定Rubyプログラム
+
+([GitHub](https://github.com/masa16/holiday_japan)),
+([RubyGems](https://rubygems.org/gems/holiday_japan))
+
+## 特徴
+* 1948年7月20日以降の日本の国民の祝日、振替休日、および国民の休日を計算して判定。
+* スクリプトコード([holiday_japan.rb](https://github.com/masa16/holiday_japan/blob/master/lib/holiday_japan.rb))は、祝日データを含めて200行弱とコンパクト。
+
+(date2 の holiday.rb と比較して)
+* 祝日をキャッシュすることにより、大量の日付について祝日判定する場合でも高速に動作
+* 祝日名を返すことが可能
+* 祝日のルールをテーブルで持つことにより、法改正による祝日変更への対応が容易
+
+## インストール
+
+* RubyGems によるインストール
+  ```
+  gem install holiday_japan
+  ```
+
+* または、[holiday_japan.rb](https://github.com/masa16/holiday_japan/blob/master/lib/holiday_japan.rb)
+  のスクリプトファイルを ruby のライブラリパスに置く
+
+## 使い方
+
+### モジュールをロード
+
+  ```ruby
+  require 'holiday_japan'
+  ```
+
+### HolidayJapan モジュール関数
+
+* `check(date)` ― Dateクラスのオブジェクトによる祝日判定
+
+<%= x('HolidayJapan.check(Date.new(2019,3,21))') %>
+
+* `name(date)` ― 日付が祝日の場合は祝日名を返し、祝日でなければ nil を返す。
+
+<%= x('HolidayJapan.name(Date.new(2019,3,21))') %>
+
+* `print_year(year)` ― ある年の祝日一覧をプリント
+
+  ```
+<%= c("ruby -r holiday_japan -e 'HolidayJapan.print_year 2019'") %>
+  ```
+
+* `list_year(year)` ― ある年について、 [日付, 祝日名] のArrayを返す
+
+<%= x('HolidayJapan.list_year(2019)') %>
+
+* `hash_year(year)` ― ある年について、 {日付=>祝日名} のHashを返す
+
+<%= x('HolidayJapan.hash_year(2019)') %>
+
+* `between(from_date,to_date)` ― from_date から to_date までの祝日について、{日付=>祝日名}のHashを返す
+
+<%= x('HolidayJapan.between("2019-4-1","2020-3-31")') %>
+
+### 祝日データをCSVに出力
+
+  ```
+<%= c(%!ruby -r csv -r holiday_japan -e 'CSV.open("holiday.csv","w"){|c| HolidayJapan.between(2018,2020).each{|a| c<<a}}'!) %>
+<%= c("head -n3 holiday.csv ; echo ...; tail -n3 holiday.csv") %>
+  ```
+
+## 祝日データ
+
+* 1948年7月20日(祝日法発令) 以降の祝日に対応
+* 2019年の[暦要項](http://eco.mtk.nao.ac.jp/koyomi/yoko/)まで確認（法改正がない限り以降も有効）
+* 春分の日・秋分の日の計算は2150年まで
+
+## Author:
+    Masahiro TANAKA
+
+## Copyright:
+    (C) Copyright 2003-2018 by Masahiro TANAKA
+    This program is free software under MIT license.
+    See LICENSE.txt.
+    NO WARRANTY.
+
+## Version:
+    2018-04-14  ver 1.4  祝日データ仕様変更、2019,2020年対応
+    2017-12-01  ver 1.3  print_between 関数追加
+    2015-04-11  ver 1.2  hash_year, between 関数追加
+    2014-05-23  ver 1.1  「山の日」追加
+    2012-12-23  ver 1.0  モジュール名を Holiday から HolidayJapan に変更
+    2007-08-02  ver 0.9  リファクタリング
+    2007-03-08  ver 0.8  祝日データクラスを統一、データを配列で記述
+    2006-02-06  ver 0.7  平成19年(西暦2007年)の暦要項 反映(祝日法改正)
+                         Holiday.create_table 修正
+                         Holiday.list_year 追加
+    2003-10-02  ver 0.6  祝日データ追加
+    2003-09-29  ver 0.5
+    2003-09-22  ver 0.4
+    2003-09-20  ver 0.3
+    2003-09-16  ver 0.2
+    2003-09-15  ver 0.1
