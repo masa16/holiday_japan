@@ -3,7 +3,7 @@ require "holiday_japan"
 require "csv"
 
 $first_year = 1948
-$last_year = 2019
+$last_year = 2020
 $range = $first_year..$last_year
 $csv_file = File.join(__dir__,"holiday.csv")
 
