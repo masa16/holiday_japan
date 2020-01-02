@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 # 日本の祝日判定Rubyプログラム
 
 ([GitHub](https://github.com/masa16/holiday_japan)),
@@ -44,14 +42,12 @@
   => true
   ```
 
-
 * `name(date)` ― 日付が祝日の場合は祝日名を返し、祝日でなければ nil を返す。
 
   ```ruby
   HolidayJapan.name(Date.new(2020,3,20))
   => "春分の日"
   ```
-
 
 * `print_year(year)` ― ある年の祝日一覧をプリント
 
@@ -76,7 +72,6 @@
   2020-09-22 Tue 秋分の日
   2020-11-03 Tue 文化の日
   2020-11-23 Mon 勤労感謝の日
-
   ```
 
 * `list_year(year)` ― ある年について、 [日付, 祝日名] のArrayを返す
@@ -103,7 +98,6 @@
       [#<Date: 2020-11-23 ((2459177j,0s,0n),+0s,2299161j)>, "勤労感謝の日"]]
   ```
 
-
 * `hash_year(year)` ― ある年について、 {日付=>祝日名} のHashを返す
 
   ```ruby
@@ -128,7 +122,6 @@
       #<Date: 2020-11-23 ((2459177j,0s,0n),+0s,2299161j)>=>"勤労感謝の日"}
   ```
 
-
 * `between(from_date,to_date)` ― from_date から to_date までの祝日について、{日付=>祝日名}のHashを返す
 
   ```ruby
@@ -152,12 +145,10 @@
       #<Date: 2021-03-20 ((2459294j,0s,0n),+0s,2299161j)>=>"春分の日"}
   ```
 
-
 ### 祝日データをCSVに出力
 
   ```
   $ ruby -r csv -r holiday_japan -e 'CSV.open("holiday.csv","w"){|c| HolidayJapan.between(2018,2020).each{|a| c<<a}}'
-
   $ head -n3 holiday.csv ; echo ...; tail -n3 holiday.csv
   2018-01-01,元日
   2018-01-08,成人の日
@@ -166,7 +157,6 @@
   2020-09-22,秋分の日
   2020-11-03,文化の日
   2020-11-23,勤労感謝の日
-
   ```
 
 ## 祝日データ
