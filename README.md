@@ -162,14 +162,14 @@
 ## 祝日データ
 
 * 1948年7月20日(祝日法発令) 以降の祝日に対応
-* 2020年の[暦要項](http://eco.mtk.nao.ac.jp/koyomi/yoko/)まで確認（法改正がない限り以降も有効）
+* 2021年の[暦要項](http://eco.mtk.nao.ac.jp/koyomi/yoko/)まで確認（法改正がない限り以降も有効）
 * 春分の日・秋分の日の計算は2150年まで
 
 ## Author:
     Masahiro TANAKA
 
 ## Copyright:
-    (C) Copyright 2003-2018 by Masahiro TANAKA
+    (C) Copyright 2003-2020 by Masahiro TANAKA
     This program is free software under MIT license.
     See LICENSE.txt.
     NO WARRANTY.
