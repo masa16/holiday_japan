@@ -2,9 +2,6 @@ require "test/unit"
 require "holiday_japan"
 require "csv"
 
-$first_year = 1948
-$last_year = 2020
-$range = $first_year..$last_year
 $csv_file = File.join(__dir__,"holiday.csv")
 
 # write CSV data and exit
@@ -18,15 +15,15 @@ $csv = CSV.open(File.join(__dir__,"holiday.csv"),"r")
 $hash = {}
 $list = []
 
-$range.each do |y|
-  $hash[y] = {}
-end
-
 $csv.each do |str,name|
   date = Date.parse(str)
+  $hash[date.year] ||= {}
   $hash[date.year][date] = name
   $list << [date,name]
 end
+
+y = $hash.keys
+$range = y.min..y.max
 
 class HolidayJapanTest < Test::Unit::TestCase
 
