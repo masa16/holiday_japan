@@ -61,34 +61,34 @@ end
 
 * `check(date)` ― Dateクラスのオブジェクトによる祝日判定
 
-<%= x('HolidayJapan.check(Date.new(2020,3,20))') %>
+<%= x('HolidayJapan.check(Date.new(2021,3,20))') %>
 
 * `name(date)` ― 日付が祝日の場合は祝日名を返し、祝日でなければ nil を返す。
 
-<%= x('HolidayJapan.name(Date.new(2020,3,20))') %>
+<%= x('HolidayJapan.name(Date.new(2021,3,20))') %>
 
 * `print_year(year)` ― ある年の祝日一覧をプリント
 
   ```
-<%= c("ruby -r holiday_japan -e 'HolidayJapan.print_year 2020'") %>
+<%= c("ruby -r holiday_japan -e 'HolidayJapan.print_year 2021'") %>
   ```
 
 * `list_year(year)` ― ある年について、 [日付, 祝日名] のArrayを返す
 
-<%= x('HolidayJapan.list_year(2020)') %>
+<%= x('HolidayJapan.list_year(2021)') %>
 
 * `hash_year(year)` ― ある年について、 {日付=>祝日名} のHashを返す
 
-<%= x('HolidayJapan.hash_year(2020)') %>
+<%= x('HolidayJapan.hash_year(2021)') %>
 
 * `between(from_date,to_date)` ― from_date から to_date までの祝日について、{日付=>祝日名}のHashを返す
 
-<%= x('HolidayJapan.between("2020-4-1","2021-3-31")') %>
+<%= x('HolidayJapan.between("2021-4-1","2022-3-31")') %>
 
 ### 祝日データをCSVに出力
 
   ```
-<%= c(%!ruby -r csv -r holiday_japan -e 'CSV.open("holiday.csv","w"){|c| HolidayJapan.between(2018,2020).each{|a| c<<a}}'!) %>
+<%= c(%!ruby -r csv -r holiday_japan -e 'CSV.open("holiday.csv","w"){|c| HolidayJapan.between(2020,2021).each{|a| c<<a}}'!) %>
 <%= c("head -n3 holiday.csv ; echo ...; tail -n3 holiday.csv") %>
   ```
 
