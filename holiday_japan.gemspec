@@ -13,6 +13,8 @@ Gem::Specification.new do |gem|
   gem.homepage      = "https://masa16.github.io/holiday_japan/"
   gem.license       = "MIT"
 
+  gem.metadata['source_code_uri'] = 'https://github.com/masa16/holiday_japan'
+
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
