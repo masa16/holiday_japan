@@ -10,8 +10,10 @@ Gem::Specification.new do |gem|
   gem.email         = ["masa16.tanaka@gmail.com"]
   gem.summary       = %q{Calculate National Holidays of Japan}
   gem.description   = %q{Calculate National Holidays of Japan after 1948}
-  gem.homepage      = "http://masa16.github.io/holiday_japan/"
+  gem.homepage      = "https://masa16.github.io/holiday_japan/"
   gem.license       = "MIT"
+
+  gem.metadata['source_code_uri'] = 'https://github.com/masa16/holiday_japan'
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
