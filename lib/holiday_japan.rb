@@ -155,7 +155,7 @@ module HolidayJapan
       from_date = Date.new(from_date,1,1)
     when Date
     else
-      raise ArgumentError, "invalid type fpr from_date"
+      raise ArgumentError, "invalid type for from_date"
     end
     case to_date
     when String
@@ -164,7 +164,7 @@ module HolidayJapan
       to_date = Date.new(to_date,12,31)
     when Date
     else
-      raise ArgumentError, "invalid type fpr to_date"
+      raise ArgumentError, "invalid type for to_date"
     end
     if from_date > to_date
       raise ArgumentError, "to_date is earlier than from_date"
